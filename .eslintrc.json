@@ -1,3 +1,29 @@
 {
-  "extends": ["next/core-web-vitals", "next/typescript"]
+	"extends": ["next/core-web-vitals", "prettier"],
+	"plugins": ["prettier", "@typescript-eslint"],
+	"rules": {
+			"prettier/prettier": [
+					"error",
+					{
+							"semi": true,
+							"singleQuote": true,
+							"trailingComma": "es5",
+							"tabWidth": 2,
+							"useTabs": false,
+							"bracketSpacing": true,
+							"arrowParens": "always",
+							"printWidth": 80
+					}
+			],
+			"@typescript-eslint/no-unused-vars": [
+					"warn",
+					{
+							"argsIgnorePattern": "^_",
+							"varsIgnorePattern": "^_",
+							"caughtErrorsIgnorePattern": "^_"
+					}
+			],
+			"react/react-in-jsx-scope": "off",
+			"react/prop-types": "off"
+	}
 }
