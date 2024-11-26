@@ -1,40 +1,101 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# Test Assignment for DevelopsToday
+
+## Overview
+
+This project is a test assignment implemented using **Next.js**. The application allows users to filter vehicles by make and model year, displaying a list of corresponding vehicle models based on the selected criteria.
+
+The app features a dynamic and responsive user interface built with **Tailwind CSS**. It utilizes **TypeScript** for type safety and **React Suspense** for efficient data loading.
+
+---
+
+## Features
+
+1. **Dynamic Routes**  
+   The application dynamically generates pages for selected vehicle makes and years using `getStaticProps` and `getStaticPaths`.
+
+2. **Vehicle Makes and Models Filtering**  
+   - Fetches vehicle makes from the API endpoint:  
+     `https://vpic.nhtsa.dot.gov/api/vehicles/GetMakesForVehicleType/car?format=json`
+   - Allows users to select a make and a model year (2015 to the current year).
+   - Displays vehicle models for the selected make and year using the endpoint:  
+     `https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMakeIdYear/makeId/{makeId}/modelyear/{year}?format=json`.
+
+3. **React Suspense**  
+   - Ensures a smooth loading experience by using `Suspense` components for API data fetching.
+
+4. **Responsive Design**  
+   - The application is designed to be fully responsive, ensuring compatibility across various devices.
+
+5. **Type Safety**  
+   - All components and data types are fully typed with **TypeScript**, ensuring fewer bugs and better code readability.
+
+6. **Code Quality Tools**  
+   - Pre-configured **ESLint** and **Prettier** ensure consistent and high-quality code.
+
+---
 
 ## Getting Started
 
-First, run the development server:
+### Clone the Repository
+
+```bash
+git clone https://github.com/alexrrxo/develops-today-test.git
+cd develops-today-test
+```
+
+### Install Dependencies
+
+```bash
+npm install
+```
+
+### Add Environment Variables
+
+Create a `.env.local` file in the root directory and add the following variable:
+
+```env
+NEXT_PUBLIC_API_BASE_URL=https://vpic.nhtsa.dot.gov/api
+```
+
+### Start the Development Server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Open in Browser
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+Visit [http://localhost:3000](http://localhost:3000) in your browser to view the application.
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+---
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+## Screenshots
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Home Page
+The home page features:
+- A dropdown to select vehicle make.
+- A dropdown to select model year.
+- A button to proceed to the results page.
 
-## Learn More
+![My photo](/public/main.PNG)
 
-To learn more about Next.js, take a look at the following resources:
+### Results Page
+The results page dynamically fetches and displays vehicle models based on user input.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+![My photo](/public/result.PNG)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## Technologies Used
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Next.js**: For server-side rendering and dynamic routing.
+- **Tailwind CSS**: For styling and responsive design.
+- **TypeScript**: For static typing and code reliability.
+- **React Suspense**: For efficient asynchronous data fetching.
+- **ESLint and Prettier**: For maintaining consistent code quality.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+---
+
+## Notes
+
+This assignment demonstrates the use of modern tools and frameworks to build a scalable, maintainable, and user-friendly application.
